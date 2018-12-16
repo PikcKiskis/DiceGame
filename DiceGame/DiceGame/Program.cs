@@ -18,13 +18,16 @@ namespace DiceGame
             //gameController.StartGame();
             //guiController.ShowMenu();
 
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.ShowMainMenu();
+            //MainMenu mainMenu = new MainMenu();
+            //mainMenu.ShowMainMenu();
             //PlayerSelectionMenu playerSelectionMenu = new PlayerSelectionMenu();
             //playerSelectionMenu.ShowPlayerSelectionMenu();
 
             //DiceSelectionMenu diceSelectionMenu = new DiceSelectionMenu();
             //diceSelectionMenu.ShowDiceSelectionMenu();
+
+            GameOverMenu gameOverMenu = new GameOverMenu();
+            gameOverMenu.ShowGameOverSelectionMenu();
             Console.ReadKey();
 
         }
