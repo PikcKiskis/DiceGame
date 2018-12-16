@@ -11,8 +11,6 @@ namespace DiceGame.GUI
 {
     class GuiController
     {
-        private int arrowPushed = 0;
-        private bool checkingKeys = true;
 
         public GuiController()
         {
@@ -24,98 +22,8 @@ namespace DiceGame.GUI
         {
             MainMenu mainMenu = new MainMenu();
             mainMenu.ShowMainMenu();
-            {
-                //do
-                //{
-                //    ConsoleKeyInfo pressedChar = Console.ReadKey(true);
-
-                //    switch (pressedChar.Key)
-                //    {
-                //        //case ConsoleKey.P:
-                //        //    {
-                //        //        RenderPlayerSelectionMenu();
-                //        //        break;
-                //        //    }
-                //        //case ConsoleKey.C:
-                //        //    {
-                //        //        RenderCreditWindow();
-                //        //        break;
-                //        //    }
-                //        //case ConsoleKey.Q:
-                //        //    {
-                //        //        Environment.Exit(0);
-                //        //        break;
-                //        //    }
-
-                //        case ConsoleKey.RightArrow:
-                //            arrowPushed++;
-                //            if (arrowPushed < 3 && arrowPushed >= 0)
-                //            {
-                //                //gameWindow.ActivateButtonRight(arrowPushed);
-                //            }
-                //            else
-                //            {
-                //                arrowPushed--;
-                //                //gameWindow.ActivateButtonRight(arrowPushed);
-                //            }
-
-                //            break;
-                //        case ConsoleKey.LeftArrow:
-                //            arrowPushed--;
-                //            if (arrowPushed >= 0 && arrowPushed < 3)
-                //            {
-                //                //gameWindow.ActivateButtonLeft(arrowPushed);
-                //            }
-                //            else
-                //            {
-                //                arrowPushed++;
-                //                //gameWindow.ActivateButtonLeft(arrowPushed);
-                //            }
-
-                //            break;
-                //        case ConsoleKey.Enter:
-                //            switch (arrowPushed)
-                //            {
-                //                case 0:
-                //                    RenderGame();
-                //                    break;
-                //                case 1:
-                //                    RenderCreditWindow();
-                //                    break;
-                //                case 2:
-                //                    Environment.Exit(0);
-                //                    break;
-                //            }
-                //            break;
-                //        case ConsoleKey.Escape:
-                //            Environment.Exit(0);
-                //            break;
-
-                //    }
-
-                //} while (checkingKeys);
-            }
 
         }
-
-
-        //public void RenderCreditWindow()
-        //{
-        //    arrowPushed = 0;
-        //    CreditWindow creditWindow = new CreditWindow();
-        //    creditWindow.Render();
-        //    Console.ReadKey();
-        //    ShowMenu();
-
-        //}
-
-        //public void RenderGame()
-        //{
-        //    GameController gameController = new GameController();
-        //    gameController.StartGame();
-
-        //}
-
        
 
     }

@@ -66,8 +66,6 @@ namespace DiceGame.Menus
                             Environment.Exit(0);
                             break;
                         }
-
-
                 }
             } while (checkingKeys);
         }

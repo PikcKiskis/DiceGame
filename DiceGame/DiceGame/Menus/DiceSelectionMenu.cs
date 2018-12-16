@@ -10,7 +10,7 @@ namespace DiceGame.Menus
 {
     class DiceSelectionMenu : Window
     {
-        private int arrowPushed = 0;
+   
         private bool checkingKeys = true;
 
         private TextLine diceSelectionTextLine;

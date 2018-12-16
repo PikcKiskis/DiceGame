@@ -10,7 +10,6 @@ namespace DiceGame.Menus
 {
     class MainMenu : Window
     {
-        private int arrowPushed = 0;
         private bool checkingKeys = true;
 
         private TextBlock titleTextBlock;
