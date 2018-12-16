@@ -4,9 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiceGame.Menu
+namespace DiceGame.Menus
 {
     class MenuController
     {
+
+
+        MenuController() {
+
+
+        }
+
+        
+
+        
+        
     }
 }

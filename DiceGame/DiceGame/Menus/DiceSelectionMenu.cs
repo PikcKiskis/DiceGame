@@ -5,10 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiceGame.Menu
+namespace DiceGame.Menus
 {
     class DiceSelectionMenu : Window
     {
+        private int arrowPushed = 0;
+        private bool checkingKeys = true;
+
         private TextLine diceSelectionTextLine;
         private TextLine menuControlExplanationLine;
 
@@ -34,7 +37,7 @@ namespace DiceGame.Menu
 
         public void ShowDiceSelectionMenu()
         {
-            Render();
+
         }
 
     }

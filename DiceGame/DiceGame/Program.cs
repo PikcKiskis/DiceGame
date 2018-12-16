@@ -1,5 +1,6 @@
-﻿using DiceGame.GUI;
-using DiceGame.Menu;
+﻿using DiceGame.Game;
+using DiceGame.GUI;
+using DiceGame.Menus;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,9 @@ namespace DiceGame
         {
             Console.CursorVisible = false;
             GuiController guiController = new GuiController();
-            //GameController gameController = new GameController();
+            GameController gameController = new GameController();
             //gameController.StartGame();
-            //guiController.ShowMenu();
+            guiController.ShowMenu();
 
             //MainMenu mainMenu = new MainMenu();
             //mainMenu.ShowMainMenu();
@@ -26,8 +27,8 @@ namespace DiceGame
             //DiceSelectionMenu diceSelectionMenu = new DiceSelectionMenu();
             //diceSelectionMenu.ShowDiceSelectionMenu();
 
-            GameOverMenu gameOverMenu = new GameOverMenu();
-            gameOverMenu.ShowGameOverSelectionMenu();
+            //GameOverMenu gameOverMenu = new GameOverMenu();
+            //gameOverMenu.ShowGameOverSelectionMenu();
             Console.ReadKey();
 
         }

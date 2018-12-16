@@ -1,4 +1,5 @@
 ﻿using DiceGame.Game;
+using DiceGame.Menus;
 using DiceGame.View;
 using System;
 using System.Collections.Generic;
@@ -21,85 +22,101 @@ namespace DiceGame.GUI
         public void ShowMenu()
 
         {
-            GameWindow gameWindow = new GameWindow();
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.ShowMainMenu();
             {
-                do
-                {
-                    //while (Console.KeyAvailable)
-                    //{
-                    ConsoleKeyInfo pressedChar = Console.ReadKey(true);
-                    switch (pressedChar.Key)
-                    {
+                //do
+                //{
+                //    ConsoleKeyInfo pressedChar = Console.ReadKey(true);
 
-                        case ConsoleKey.RightArrow:
-                            arrowPushed++;
-                            if (arrowPushed < 3 && arrowPushed >= 0)
-                            {
-                                gameWindow.ActivateButtonRight(arrowPushed);
-                            }
-                            else
-                            {
-                                arrowPushed--;
-                                gameWindow.ActivateButtonRight(arrowPushed);
-                            }
+                //    switch (pressedChar.Key)
+                //    {
+                //        //case ConsoleKey.P:
+                //        //    {
+                //        //        RenderPlayerSelectionMenu();
+                //        //        break;
+                //        //    }
+                //        //case ConsoleKey.C:
+                //        //    {
+                //        //        RenderCreditWindow();
+                //        //        break;
+                //        //    }
+                //        //case ConsoleKey.Q:
+                //        //    {
+                //        //        Environment.Exit(0);
+                //        //        break;
+                //        //    }
 
-                            break;
-                        case ConsoleKey.LeftArrow:
-                            arrowPushed--;
-                            if (arrowPushed >= 0 && arrowPushed < 3)
-                            {
-                                gameWindow.ActivateButtonLeft(arrowPushed);
-                            }
-                            else
-                            {
-                                arrowPushed++;
-                                gameWindow.ActivateButtonLeft(arrowPushed);
-                            }
+                //        case ConsoleKey.RightArrow:
+                //            arrowPushed++;
+                //            if (arrowPushed < 3 && arrowPushed >= 0)
+                //            {
+                //                //gameWindow.ActivateButtonRight(arrowPushed);
+                //            }
+                //            else
+                //            {
+                //                arrowPushed--;
+                //                //gameWindow.ActivateButtonRight(arrowPushed);
+                //            }
 
-                            break;
-                        case ConsoleKey.Enter:
-                            switch (arrowPushed)
-                            {
-                                case 0:
-                                    RenderGame();
-                                    break;
-                                case 1:
-                                    RenderCreditWindow();
-                                    break;
-                                case 2:
-                                    Environment.Exit(0);
-                                    break;
-                            }
-                            break;
-                        case ConsoleKey.Escape:
-                            Environment.Exit(0);
-                            break;
+                //            break;
+                //        case ConsoleKey.LeftArrow:
+                //            arrowPushed--;
+                //            if (arrowPushed >= 0 && arrowPushed < 3)
+                //            {
+                //                //gameWindow.ActivateButtonLeft(arrowPushed);
+                //            }
+                //            else
+                //            {
+                //                arrowPushed++;
+                //                //gameWindow.ActivateButtonLeft(arrowPushed);
+                //            }
 
-                    }
-                    //}
+                //            break;
+                //        case ConsoleKey.Enter:
+                //            switch (arrowPushed)
+                //            {
+                //                case 0:
+                //                    RenderGame();
+                //                    break;
+                //                case 1:
+                //                    RenderCreditWindow();
+                //                    break;
+                //                case 2:
+                //                    Environment.Exit(0);
+                //                    break;
+                //            }
+                //            break;
+                //        case ConsoleKey.Escape:
+                //            Environment.Exit(0);
+                //            break;
 
-                } while (checkingKeys);
+                //    }
+
+                //} while (checkingKeys);
             }
 
         }
 
 
-        public void RenderCreditWindow()
-        {
-            arrowPushed = 0;
-            CreditWindow creditWindow = new CreditWindow();
-            creditWindow.Render();
-            Console.ReadKey();
-            ShowMenu();
+        //public void RenderCreditWindow()
+        //{
+        //    arrowPushed = 0;
+        //    CreditWindow creditWindow = new CreditWindow();
+        //    creditWindow.Render();
+        //    Console.ReadKey();
+        //    ShowMenu();
 
-        }
+        //}
 
-        public void RenderGame()
-        {
-            GameController gameController = new GameController();
-            gameController.StartGame();
+        //public void RenderGame()
+        //{
+        //    GameController gameController = new GameController();
+        //    gameController.StartGame();
 
-        }
+        //}
+
+       
 
     }
 }
