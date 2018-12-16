@@ -58,7 +58,6 @@
     <Compile Include="Menus\DiceSelectionMenu.cs" />
     <Compile Include="Menus\GameOverMenu.cs" />
     <Compile Include="Menus\MainMenu.cs" />
-    <Compile Include="Menus\Menu.cs" />
     <Compile Include="Menus\MenuController.cs" />
     <Compile Include="Menus\PlayerSelectionMenu.cs" />
     <Compile Include="Program.cs" />

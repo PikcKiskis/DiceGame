@@ -1,4 +1,5 @@
-﻿using DiceGame.GUI;
+﻿using DiceGame.Game;
+using DiceGame.GUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace DiceGame.Menus
 {
     class GameOverMenu : Window
     {
+        private bool checkingKeys = true;
+
         private TextLine gaweOverTextLine;
         private TextLine winnerTextline;
         private TextLine gameOverSelectionMenuTextLine;
@@ -38,7 +41,35 @@ namespace DiceGame.Menus
 
         public void ShowGameOverSelectionMenu()
         {
-            Render();
+            do
+            {
+                ConsoleKeyInfo pressedChar = Console.ReadKey(true);
+
+                switch (pressedChar.Key)
+                {
+                    case ConsoleKey.R:
+                        {
+                            GameController gameController = new GameController();
+                            gameController.StartGame();
+                            break;
+                            
+                        }
+                    case ConsoleKey.M:
+                        {
+                            Console.Clear();
+                            MainMenu mainMenu = new MainMenu();
+                            mainMenu.ShowMainMenu();
+                            break;
+                        }
+                    case ConsoleKey.Q:
+                        {
+                            Environment.Exit(0);
+                            break;
+                        }
+
+
+                }
+            } while (checkingKeys);
         }
     }
 }
