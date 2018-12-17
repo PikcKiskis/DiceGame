@@ -9,22 +9,32 @@ namespace DiceGame.Game
     class Player
     {
         private string name;
-        private int diceAmount;
-        private int[] dicesPoints;
+        private List<int> dicesPoints;
 
-        public Player (string name, int diceAmount)
+        
+
+
+        public Player(string name, List<int> dicesPoints)
         {
             this.name = name;
-            this.diceAmount = diceAmount;
+            this.dicesPoints = dicesPoints;
 
-            dicesPoints = new int[diceAmount];
 
         }
+
+
 
         public void PrintInfo()
         {
-            Console.WriteLine($"{name} dices points " );
+            Console.WriteLine($"{name} dices: ");
+            foreach (var item in dicesPoints)
+            {
+                Console.WriteLine(item);
+            }
+
         }
 
-    }
+        
+
+}
 }

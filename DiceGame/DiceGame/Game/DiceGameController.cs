@@ -13,6 +13,9 @@ namespace DiceGame.Game
         private int playerSelectionAmount;
         private int diceAmountForPlayer;
 
+        private List<int> dicesPoints= new List<int>();
+
+        Random random = new Random();
 
         public DiceGameController(int playerSelectionAmount, int diceAmountForPlayer)
         {
@@ -24,13 +27,21 @@ namespace DiceGame.Game
         {
             Console.Clear();
             DiceGameScreen diceGameScreen = new DiceGameScreen();
+            
+            
             int playerCount = 0;
 
             List<Player> playerList = new List<Player>();
             for (int i = 0; i < playerSelectionAmount; i++)
-            {
-                diceGameScreen.AddPlayer(new Player( "Player" + playerCount, diceAmountForPlayer));
+            { 
+
+                dicesPoints = diceGameScreen.PlayerRolls(diceAmountForPlayer);
+                diceGameScreen.AddPlayer(new Player("Player" + playerCount , dicesPoints));
                 playerCount++;
+
+
+
+
             }
 
             diceGameScreen.Render();
@@ -39,6 +50,8 @@ namespace DiceGame.Game
             //GameOverMenu gameOverMenu = new GameOverMenu();
             //gameOverMenu.ShowGameOverSelectionMenu(playerSelectionAmount, diceAmountForPlayer);
         }
+
+
 
     }
 }

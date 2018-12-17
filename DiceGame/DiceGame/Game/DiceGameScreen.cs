@@ -9,7 +9,10 @@ namespace DiceGame.Game
     class DiceGameScreen
     {
 
+        
         private List<Player> PlayerList = new List<Player>();
+        
+        Random random = new Random();
 
         public DiceGameScreen()
         {
@@ -21,6 +24,17 @@ namespace DiceGame.Game
 
         }
 
+        public List<int> PlayerRolls(int diceAmountForPlayer)
+        {
+            List<int> dicesPoints = new List<int>();
+            for (int j = 0; j < diceAmountForPlayer; j++)
+            {
+
+                dicesPoints.Add(random.Next(1, 6));
+                // Console.WriteLine(random.Next(1, 6));
+            }
+            return dicesPoints;
+        }
         public void Render()
         {
         
