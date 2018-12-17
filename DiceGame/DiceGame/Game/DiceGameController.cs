@@ -13,7 +13,7 @@ namespace DiceGame.Game
         private int playerSelectionAmount;
         private int diceAmountForPlayer;
         private int playerDiceSum = 0;
-
+        private List<int> DiceSums = new List<int>();
         private List<int> dicesPoints= new List<int>();
 
 
@@ -35,10 +35,12 @@ namespace DiceGame.Game
             int playerCount = 0;
 
             for (int i = 0; i < playerSelectionAmount; i++)
-            { 
-
+            {
+                
                 dicesPoints = diceGameScreen.PlayerRolls(diceAmountForPlayer);
                 playerDiceSum = dicesPoints.Sum();
+                DiceSums.Add(playerDiceSum);
+
                 diceGameScreen.AddPlayer(new Player("Player" + playerCount , dicesPoints , playerDiceSum));
                 playerCount++;
 
@@ -46,33 +48,20 @@ namespace DiceGame.Game
 
             diceGameScreen.Render();
 
+
             do
             {
                 Console.Clear();
 
-                while (Console.KeyAvailable)
-                {
-                    ConsoleKeyInfo pressedChar = Console.ReadKey(true);
-                    switch (pressedChar.Key)
-                    {
-                        case ConsoleKey.Escape:
-                            needToRender = false;
-                            break;
-                        case ConsoleKey.RightArrow:
-                            break;
-                        case ConsoleKey.LeftArrow:
-                            break;
-                    }
-                }
                 diceGameScreen.Render();
 
-                System.Threading.Thread.Sleep(250);
+                System.Threading.Thread.Sleep(3000);
+                GameOverMenu gameOverMenu = new GameOverMenu();
+                gameOverMenu.ShowGameOverSelectionMenu(playerSelectionAmount, diceAmountForPlayer);
 
             } while (needToRender);
 
 
-            //GameOverMenu gameOverMenu = new GameOverMenu();
-            //gameOverMenu.ShowGameOverSelectionMenu(playerSelectionAmount, diceAmountForPlayer);
         }
 
 
