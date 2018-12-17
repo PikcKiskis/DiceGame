@@ -56,7 +56,7 @@ namespace DiceGame.Game
 
                 diceGameScreen.Render();
                 int maximum = DiceSums.Max();
-                
+                winner = DiceSums.FindIndex(x => x == maximum);
 
 
 
