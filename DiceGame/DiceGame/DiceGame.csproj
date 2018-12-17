@@ -45,12 +45,7 @@
   <ItemGroup>
     <Compile Include="Game\DiceGameController.cs" />
     <Compile Include="Game\DiceGameScreen.cs" />
-    <Compile Include="Game\Enemy.cs" />
-    <Compile Include="Game\GameController.cs" />
-    <Compile Include="Game\GameScreen.cs" />
-    <Compile Include="Game\Hero.cs" />
     <Compile Include="Game\Player.cs" />
-    <Compile Include="Game\Unit.cs" />
     <Compile Include="GUI\Button.cs" />
     <Compile Include="GUI\Frame.cs" />
     <Compile Include="GUI\GuiController.cs" />

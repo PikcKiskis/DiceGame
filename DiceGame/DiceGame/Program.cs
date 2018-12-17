@@ -15,8 +15,6 @@ namespace DiceGame
         {
             Console.CursorVisible = false;
             GuiController guiController = new GuiController();
-            GameController gameController = new GameController();
-            //gameController.StartGame();
             guiController.ShowMenu();
 
 
