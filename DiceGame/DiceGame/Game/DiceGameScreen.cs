@@ -31,7 +31,7 @@ namespace DiceGame.Game
             {
 
                 dicesPoints.Add(random.Next(1, 6));
-                // Console.WriteLine(random.Next(1, 6));
+
             }
             return dicesPoints;
         }
