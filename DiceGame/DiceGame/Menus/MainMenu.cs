@@ -38,6 +38,7 @@ namespace DiceGame.Menus
         public void ShowMainMenu()
 
         {
+            Render();
             do
             {
                 ConsoleKeyInfo pressedChar = Console.ReadKey(true);
