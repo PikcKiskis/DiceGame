@@ -11,19 +11,21 @@ namespace DiceGame.Menus
     class GameOverMenu : Window
     {
         private bool checkingKeys = true;
+        private int winner;
 
         private TextLine gaweOverTextLine;
         private TextLine winnerTextline;
         private TextLine gameOverSelectionMenuTextLine;
         
 
-        public GameOverMenu() : base(0, 0, 80, 25, '%')
+        public GameOverMenu(int winner) : base(0, 0, 80, 25, '%')
         {
-
+            this.winner = winner;
             gaweOverTextLine = new TextLine(15, 10, 50, "GAME OVER!");
-            winnerTextline = new TextLine(15, 12, 50, "The winner is Player 2");
+            winnerTextline = new TextLine(15, 12, 50, "The winner is Player" + winner);
             gameOverSelectionMenuTextLine = new TextLine(15, 22, 50, "R - Replay same, M - Go to menu. Q - Quit.");
 
+            
         }
 
 

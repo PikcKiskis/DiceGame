@@ -10,7 +10,6 @@ namespace DiceGame.Game
     {
 
 
-        private string winner;
         private List<Player> PlayerList = new List<Player>();
         
         Random random = new Random();
@@ -44,47 +43,6 @@ namespace DiceGame.Game
                 player.PrintInfo();
                 
             }
-
-          
-            //int place = DiceSums.ElementAt(DiceSums.Max());
-
-            //switch(place)
-            //{
-            //    case 0:
-            //    {
-            //        winner = "Player0";
-            //        break;
-            //    }
-            //    case 1:
-            //        {
-            //            winner = "Player1";
-            //            break;
-            //        }
-            //    case 2:
-            //        {
-            //            winner = "Player2";
-            //            break;
-            //        }
-            //    case 3:
-            //        {
-            //            winner = "Player3";
-            //            break;
-            //        }
-            //    case 4:
-            //        {
-            //            winner = "Player4";
-            //            break;
-            //        }
-            //    case 5:
-            //        {
-            //            winner = "Player5";
-
-            //            break;
-            //        }
-
-
-            //}
-            //Console.WriteLine("The Winner is: " + winner);
            
 
         }

@@ -27,6 +27,7 @@ namespace DiceGame.Game
 
         public void StartGame()
         {
+            int winner = 0;
             bool needToRender = true;
             Console.Clear();
             DiceGameScreen diceGameScreen = new DiceGameScreen();
@@ -46,18 +47,37 @@ namespace DiceGame.Game
 
             }
 
-            diceGameScreen.Render();
+            //diceGameScreen.Render();
 
 
             do
             {
-                Console.Clear();
+                //Console.Clear();
 
                 diceGameScreen.Render();
+                int maximum = DiceSums.Max();
+                
 
-                System.Threading.Thread.Sleep(3000);
-                GameOverMenu gameOverMenu = new GameOverMenu();
-                gameOverMenu.ShowGameOverSelectionMenu(playerSelectionAmount, diceAmountForPlayer);
+
+
+
+                if (DiceSums.Count == DiceSums.Distinct().Count())
+                {
+                    System.Threading.Thread.Sleep(3000);
+                    GameOverMenu gameOverMenu = new GameOverMenu(winner);
+                    gameOverMenu.ShowGameOverSelectionMenu(playerSelectionAmount, diceAmountForPlayer );
+                    needToRender = false;
+                } else
+                {
+                    Console.WriteLine("EVEN");
+                    System.Threading.Thread.Sleep(3000);
+                    GameOverMenu gameOverMenu = new GameOverMenu(winner);
+                    gameOverMenu.ShowGameOverSelectionMenu(playerSelectionAmount, diceAmountForPlayer);
+                    needToRender = false;
+                }
+         
+
+
 
             } while (needToRender);
 
