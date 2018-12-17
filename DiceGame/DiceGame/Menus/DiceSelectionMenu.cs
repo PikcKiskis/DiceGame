@@ -13,15 +13,21 @@ namespace DiceGame.Menus
    
         private bool checkingKeys = true;
 
+        private TextLine playersCount;
         private TextLine diceSelectionTextLine;
         private TextLine menuControlExplanationLine;
 
         private int diceAmountForPlayer = 3;
+        private int playerSelectionAmount;
       
+        
 
-        public DiceSelectionMenu() : base(0, 0, 80, 25, '%')
+
+        public DiceSelectionMenu(int playerSelectionAmount) : base(0, 0, 80, 25, '%')
         {
+            this.playerSelectionAmount = playerSelectionAmount;
 
+            
             diceSelectionTextLine = new TextLine(15, 10, 50, "Player Will Have " + diceAmountForPlayer +" Dice" );
             menuControlExplanationLine = new TextLine(15, 22, 50, "Use + / - keys to change dice amount");
            
@@ -31,6 +37,7 @@ namespace DiceGame.Menus
         public override void Render()
         {
             base.Render();
+            playersCount.Render();
             diceSelectionTextLine.Render();
             menuControlExplanationLine.Render();
 
@@ -40,6 +47,40 @@ namespace DiceGame.Menus
 
         public void ShowDiceSelectionMenu()
         {
+            switch (playerSelectionAmount)
+            {
+                case 0:
+                    {
+                        playersCount = new TextLine(15, 5, 50, "P2 Selected");
+                        break;
+                    }
+                case 1:
+                    {
+                        playersCount = new TextLine(15, 5, 50, "P3 Selected");
+                        break;
+                    }
+                case 2:
+                    {
+                        playersCount = new TextLine(15, 5, 50, "P4 Selected");
+                        break;
+                    }
+                case 3:
+                    {
+                        playersCount = new TextLine(15, 5, 50, "P5 Selected");
+                        break;
+                    }
+                case 4:
+                    {
+                        playersCount = new TextLine(15, 5, 50, "P6 Selected");
+                        break;
+                    }
+                case 5:
+                    {
+                        playersCount = new TextLine(15, 5, 50, "P7 Selected");
+                        break;
+                    }
+
+            }
             Render();
             do
             {
@@ -85,8 +126,8 @@ namespace DiceGame.Menus
                         }
                     case ConsoleKey.Enter:
                         {
-                            GameController gameController = new GameController();
-                            gameController.StartGame();
+                            DiceGameController diceGameController = new DiceGameController(playerSelectionAmount + 2, diceAmountForPlayer);
+                            diceGameController.StartGame();
                             break;
                         }
                     case ConsoleKey.Escape:

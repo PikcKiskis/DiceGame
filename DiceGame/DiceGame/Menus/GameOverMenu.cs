@@ -24,7 +24,6 @@ namespace DiceGame.Menus
             winnerTextline = new TextLine(15, 12, 50, "The winner is Player 2");
             gameOverSelectionMenuTextLine = new TextLine(15, 22, 50, "R - Replay same, M - Go to menu. Q - Quit.");
 
-            Render();
         }
 
 
@@ -39,8 +38,10 @@ namespace DiceGame.Menus
 
         }
 
-        public void ShowGameOverSelectionMenu()
+        public void ShowGameOverSelectionMenu(int playerSelectionAmount, int diceAmountForPlayer)
         {
+            Render();
+
             do
             {
                 ConsoleKeyInfo pressedChar = Console.ReadKey(true);
@@ -49,8 +50,8 @@ namespace DiceGame.Menus
                 {
                     case ConsoleKey.R:
                         {
-                            GameController gameController = new GameController();
-                            gameController.StartGame();
+                            DiceGameController diceGameController = new DiceGameController(playerSelectionAmount, diceAmountForPlayer);
+                            diceGameController.StartGame();
                             break;
                             
                         }

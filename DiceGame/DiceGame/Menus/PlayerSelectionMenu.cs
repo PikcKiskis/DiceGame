@@ -157,8 +157,8 @@ namespace DiceGame.Menus
                         }
                     case ConsoleKey.Enter:
                         {
-                            Console.Clear();
-                            DiceSelectionMenu diceSelectionMenu = new DiceSelectionMenu();
+
+                            DiceSelectionMenu diceSelectionMenu = new DiceSelectionMenu(arrowPushed);
                             diceSelectionMenu.ShowDiceSelectionMenu();
                             break;
                         }
