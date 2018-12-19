@@ -24,6 +24,11 @@ namespace DiceGame.Game
 
         }
 
+        public void ClearPlayers()
+        {
+            PlayerList.Clear();
+        }
+
         public List<int> PlayerRolls(int diceAmountForPlayer)
         {
             List<int> dicesPoints = new List<int>();

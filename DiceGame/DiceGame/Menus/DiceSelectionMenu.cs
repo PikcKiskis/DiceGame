@@ -18,14 +18,14 @@ namespace DiceGame.Menus
         private TextLine menuControlExplanationLine;
 
         private int diceAmountForPlayer = 3;
-        private int playerSelectionAmount;
+        //private int playerSelectionAmount;
       
         
 
 
-        public DiceSelectionMenu(int playerSelectionAmount) : base(0, 0, 80, 25, '%')
+        public DiceSelectionMenu() : base(0, 0, 80, 25, '%')
         {
-            this.playerSelectionAmount = playerSelectionAmount;
+            
 
             
             diceSelectionTextLine = new TextLine(15, 10, 50, "Player Will Have " + diceAmountForPlayer +" Dice" );
@@ -45,7 +45,7 @@ namespace DiceGame.Menus
 
         }
 
-        public void ShowDiceSelectionMenu()
+        public void ShowDiceSelectionMenu(int playerSelectionAmount)
         {
             switch (playerSelectionAmount)
             {
@@ -126,8 +126,8 @@ namespace DiceGame.Menus
                         }
                     case ConsoleKey.Enter:
                         {
-                            DiceGameController diceGameController = new DiceGameController(playerSelectionAmount + 2, diceAmountForPlayer);
-                            diceGameController.StartGame();
+                            DiceGameController diceGameController = new DiceGameController();
+                            diceGameController.StartGame(playerSelectionAmount + 2, diceAmountForPlayer);
                             break;
                         }
                     case ConsoleKey.Escape:

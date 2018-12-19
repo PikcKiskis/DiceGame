@@ -158,8 +158,8 @@ namespace DiceGame.Menus
                     case ConsoleKey.Enter:
                         {
 
-                            DiceSelectionMenu diceSelectionMenu = new DiceSelectionMenu(arrowPushed);
-                            diceSelectionMenu.ShowDiceSelectionMenu();
+                            DiceSelectionMenu diceSelectionMenu = new DiceSelectionMenu();
+                            diceSelectionMenu.ShowDiceSelectionMenu(arrowPushed);
                             break;
                         }
                     case ConsoleKey.Q:

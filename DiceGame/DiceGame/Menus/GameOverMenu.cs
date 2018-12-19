@@ -52,8 +52,9 @@ namespace DiceGame.Menus
                 {
                     case ConsoleKey.R:
                         {
-                            DiceGameController diceGameController = new DiceGameController(playerSelectionAmount, diceAmountForPlayer);
-                            diceGameController.StartGame();
+                            Console.Clear();
+                            DiceGameController diceGameController = new DiceGameController();
+                            diceGameController.StartGame(playerSelectionAmount, diceAmountForPlayer);
                             break;
                             
                         }

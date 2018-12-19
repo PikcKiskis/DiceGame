@@ -10,22 +10,23 @@ namespace DiceGame.Game
     class DiceGameController
     {
 
-        private int playerSelectionAmount;
-        private int diceAmountForPlayer;
+        //private int playerSelectionAmount;
+        //private int diceAmountForPlayer;
         private int playerDiceSum = 0;
         private List<int> DiceSums = new List<int>();
         private List<int> dicesPoints= new List<int>();
+        private Dictionary<string, int> playersResults = new Dictionary<string, int>();
 
 
         Random random = new Random();
 
-        public DiceGameController(int playerSelectionAmount, int diceAmountForPlayer)
+        public DiceGameController()
         {
-            this.playerSelectionAmount = playerSelectionAmount;
-            this.diceAmountForPlayer = diceAmountForPlayer;
+            //this.playerSelectionAmount = playerSelectionAmount;
+            //this.diceAmountForPlayer = diceAmountForPlayer;
         }
 
-        public void StartGame()
+        public void StartGame(int playerSelectionAmount, int diceAmountForPlayer)
         {
             int winner = 0;
             bool needToRender = true;
@@ -41,10 +42,11 @@ namespace DiceGame.Game
                 dicesPoints = diceGameScreen.PlayerRolls(diceAmountForPlayer);
                 playerDiceSum = dicesPoints.Sum();
                 DiceSums.Add(playerDiceSum);
-
-                diceGameScreen.AddPlayer(new Player("Player" + playerCount , dicesPoints , playerDiceSum));
+                string playerWithCount = String.Concat("Player", playerCount);
+                diceGameScreen.AddPlayer(new Player(playerWithCount, dicesPoints , playerDiceSum));
                 playerCount++;
 
+                playersResults.Add(playerWithCount, playerDiceSum);
             }
 
             //diceGameScreen.Render();
@@ -60,20 +62,35 @@ namespace DiceGame.Game
 
 
 
-
+                //(playersResults.Values.Count == playersResults.Values.Distinct().Count())
                 if (DiceSums.Count == DiceSums.Distinct().Count())
                 {
-                    System.Threading.Thread.Sleep(3000);
+                    Console.ReadKey();
                     GameOverMenu gameOverMenu = new GameOverMenu(winner);
                     gameOverMenu.ShowGameOverSelectionMenu(playerSelectionAmount, diceAmountForPlayer );
                     needToRender = false;
                 } else
                 {
                     Console.WriteLine("EVEN");
-                    System.Threading.Thread.Sleep(3000);
-                    GameOverMenu gameOverMenu = new GameOverMenu(winner);
-                    gameOverMenu.ShowGameOverSelectionMenu(playerSelectionAmount, diceAmountForPlayer);
-                    needToRender = false;
+                    List<string> evenPlayers = new List<string>(); // vienodai tasku surinke zaidejai
+                    evenPlayers = playersResults.Where(pair => pair.Value == DiceSums.FirstOrDefault())
+                                                    .Select(pair => pair.Key).ToList();
+
+                    playersResults.Clear();
+                    DiceSums.Clear();
+                    diceGameScreen.ClearPlayers();
+                    foreach (string player in evenPlayers)
+                    {
+                        dicesPoints = diceGameScreen.PlayerRolls(diceAmountForPlayer);
+                        playerDiceSum = dicesPoints.Sum();
+                        DiceSums.Add(playerDiceSum);
+                        diceGameScreen.AddPlayer(new Player(player, dicesPoints, playerDiceSum));
+
+                        playersResults.Add(player, playerDiceSum);
+                    }
+
+                    Console.ReadKey();
+ 
                 }
          
 
