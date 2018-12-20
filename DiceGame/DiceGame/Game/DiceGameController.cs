@@ -60,10 +60,13 @@ namespace DiceGame.Game
                 int maximum = DiceSums.Max();
                 winner = DiceSums.FindIndex(x => x == maximum);
 
+                var duplicateValueInDiceSumsList= DiceSums.GroupBy(x => x)
+                        .Where(group => group.Count() > 1)
+                        .Select(group => group.Key);
 
-
+                //(DiceSums.Count == DiceSums.Distinct().Count())
                 //(playersResults.Values.Count == playersResults.Values.Distinct().Count())
-                if (DiceSums.Count == DiceSums.Distinct().Count())
+                if (playersResults.Values.Count == playersResults.Values.Distinct().Count() || !duplicateValueInDiceSumsList.Contains(maximum))
                 {
                     Console.ReadKey();
                     GameOverMenu gameOverMenu = new GameOverMenu(winner);
@@ -73,7 +76,7 @@ namespace DiceGame.Game
                 {
                     Console.WriteLine("EVEN");
                     List<string> evenPlayers = new List<string>(); // vienodai tasku surinke zaidejai
-                    evenPlayers = playersResults.Where(pair => pair.Value == DiceSums.FirstOrDefault())
+                    evenPlayers = playersResults.Where(pair => pair.Value == maximum)
                                                     .Select(pair => pair.Key).ToList();
 
                     playersResults.Clear();
