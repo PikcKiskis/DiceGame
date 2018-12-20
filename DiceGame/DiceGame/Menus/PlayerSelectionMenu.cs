@@ -74,7 +74,6 @@ namespace DiceGame.Menus
                     case ConsoleKey.RightArrow:
                         {
                             
-                            //arrowPushed++;
                             if (down == 0)
                             {
                                 if (arrowPushed <2 && arrowPushed >= 0)
@@ -82,11 +81,6 @@ namespace DiceGame.Menus
                                     arrowPushed++;
                                     ActivateButtonRight(arrowPushed, down);
                                 }
-                                //else
-                                //{
-                                //    arrowPushed--;
-                                //    ActivateButtonRight(arrowPushed, down);
-                                //}
 
                             }
                             else if (down == 1)
@@ -96,20 +90,13 @@ namespace DiceGame.Menus
                                     arrowPushed++;
                                     ActivateButtonRight(arrowPushed, down);
                                 }
-                                //else
-                                //{
-                                //    arrowPushed--;
-                                //    ActivateButtonRight(arrowPushed, down);
-                                //}
-
-
+ 
                             }
 
                             break;
                         }
                     case ConsoleKey.LeftArrow:
                         {
-                            //arrowPushed--;
                             if (down == 0)
                             {
                                 if (arrowPushed > 0 && arrowPushed <= 2)
@@ -117,11 +104,6 @@ namespace DiceGame.Menus
                                     arrowPushed--;
                                     ActivateButtonLeft(arrowPushed, down);
                                 }
-                                //else
-                                //{
-                                //    arrowPushed++;
-                                //    ActivateButtonLeft(arrowPushed, down);
-                                //}
 
                             } else if (down == 1)
                             {
@@ -130,11 +112,6 @@ namespace DiceGame.Menus
                                     arrowPushed--;
                                     ActivateButtonLeft(arrowPushed, down);
                                 }
-                                //else
-                                //{
-                                //    arrowPushed++;
-                                //    ActivateButtonLeft(arrowPushed, down);
-                                //}
                             }
                  
                             break;
@@ -197,10 +174,10 @@ namespace DiceGame.Menus
         public void ActivateButtonLeft(int i, int down)
         {
 
-                playerSelectionMenuButtons.ElementAt(i + 1).SetInActive();
-                playerSelectionMenuButtons.ElementAt(i).SetActive();
-                playerSelectionMenuButtons.ElementAt(i + 1).Render();
-                playerSelectionMenuButtons.ElementAt(i).Render();
+            playerSelectionMenuButtons.ElementAt(i + 1).SetInActive();
+            playerSelectionMenuButtons.ElementAt(i).SetActive();
+            playerSelectionMenuButtons.ElementAt(i + 1).Render();
+            playerSelectionMenuButtons.ElementAt(i).Render();
 
         }
 
