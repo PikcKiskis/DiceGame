@@ -24,8 +24,6 @@ namespace DiceGame.Game
 
         }
 
-
-
         public void PrintInfo()
         {
             Console.WriteLine($"{name} dices: ");
